@@ -440,7 +440,7 @@
 
       if (!waiting) {
         // Critically damped spring: it gathers speed out of a station and brakes into the next.
-        var omega = 2 / 0.11;
+        var omega = 2 / 0.145;
         var x = omega * dt;
         var decay = 1 / (1 + x + 0.48 * x * x + 0.235 * x * x * x);
         var change = state.s - goal;
