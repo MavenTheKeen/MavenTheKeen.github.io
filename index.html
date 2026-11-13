@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Kavan Moslemimoghaddam, software and data engineer</title>
+  <meta name="description" content="Kavan Moslemimoghaddam is a software and data engineer. He built and runs Torontrack, a free live open-data platform for Toronto with transit, food, city and weather maps.">
+  <meta name="author" content="Kavan Moslemimoghaddam">
+  <link rel="canonical" href="https://maventhekeen.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kavan Moslemimoghaddam, software and data engineer">
+  <meta property="og:description" content="Builder of Torontrack, a free live open-data platform for Toronto: transit, food, city and weather maps.">
+  <meta property="og:url" content="https://maventhekeen.github.io/">
+  <meta property="og:image" content="https://maventhekeen.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Torontrack, over a night map of Toronto's rapid transit lines.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#141d3b">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141d3b'/%3E%3Cpath d='M16 0v32' stroke='%23e8336d' stroke-width='5'/%3E%3Crect x='9' y='7' width='14' height='18' rx='4' fill='%23ffffff'/%3E%3Crect x='11.5' y='10' width='9' height='5' rx='1' fill='%23141d3b'/%3E%3Ccircle cx='16' cy='20.5' r='1.8' fill='%23ffc83d'/%3E%3C/svg%3E">
+
+  <script>document.documentElement.className = "js";</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- The dark strip is the train's next-stop display. It stays on screen. -->
+  <header class="strip">
+    <a class="strip__who" href="#main">
+      <strong>Kavan Moslemimoghaddam</strong>
+      <span>Software and data engineer</span>
+    </a>
+
+    <nav class="strip__route" aria-label="Sections">
+      <p class="strip__next" aria-hidden="true">
+        <span id="next-label">Next stop</span>
+        <b id="next-name">See it</b>
+      </p>
+      <ul>
+        <li><a href="#main" aria-label="Torontrack" title="Torontrack"></a></li>
+        <li><a href="#maps" aria-label="See it" title="See it"></a></li>
+        <li><a href="#system" aria-label="How it works" title="How it works"></a></li>
+        <li><a href="#reliability" aria-label="Reliability" title="Reliability"></a></li>
+        <li><a href="#experience" aria-label="Experience" title="Experience"></a></li>
+        <li><a href="#skills" aria-label="Skills" title="Skills"></a></li>
+        <li><a href="#contact" aria-label="Contact" title="Contact"></a></li>
+      </ul>
+    </nav>
+
+    <ul class="strip__links">
+      <li><a href="resume.pdf">Resume</a></li>
+      <li><a href="https://github.com/MavenTheKeen" rel="me noopener">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/kavanmoghaddam" rel="me noopener">LinkedIn</a></li>
+      <li><a href="mailto:kavanmoghaddam@gmail.com">Email</a></li>
+    </ul>
+  </header>
+
+  <main id="main" class="ride">
+    <section class="hero" data-stop="Torontrack" aria-labelledby="hero-title">
+      <svg class="map" id="map" viewBox="0 0 720 470" preserveAspectRatio="xMaxYMax meet" role="img" aria-labelledby="map-title">
+        <title id="map-title">A schematic night map of Toronto's rapid transit lines, with trains moving along them.</title>
+
+        <path class="map__lake" d="M-2400 470 H0 C120 462 220 506 360 484 S600 438 720 456 H2400 V900 H-2400 Z"/>
+
+        <g class="map__lines" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path class="map__line l6" id="line-6" pathLength="1" d="M104 96 H214"/>
+          <path class="map__line l4" id="line-4" pathLength="1" d="M412 128 H580"/>
+          <path class="map__line l5" id="line-5" pathLength="1" d="M96 196 H676"/>
+          <path class="map__line l2" id="line-2" pathLength="1" d="M40 292 H580 L676 196"/>
+          <path class="map__line l1" id="line-1" pathLength="1" d="M214 60 V168 L292 246 V392 Q292 432 332 432 H372 Q412 432 412 392 V44"/>
+        </g>
+
+        <g class="map__stops" fill="none" stroke-linecap="round">
+          <path d="M104 96 H214"/>
+          <path d="M412 128 H580"/>
+          <path d="M96 196 H676"/>
+          <path d="M40 292 H580 L676 196"/>
+          <path d="M214 60 V168 L292 246 V392 Q292 432 332 432 H372 Q412 432 412 392 V44"/>
+        </g>
+
+        <g class="map__hubs">
+          <circle cx="214" cy="96" r="8"/>
+          <circle cx="242" cy="196" r="8"/>
+          <circle cx="412" cy="128" r="8"/>
+          <circle cx="412" cy="196" r="8"/>
+          <circle cx="292" cy="292" r="8"/>
+          <circle cx="412" cy="292" r="8"/>
+          <circle cx="352" cy="432" r="8"/>
+          <circle cx="676" cy="196" r="8"/>
+        </g>
+
+        <g class="map__labels">
+          <text x="352" y="462" text-anchor="middle">Union</text>
+          <text x="428" y="318">Bloor-Yonge</text>
+          <text x="676" y="174" text-anchor="end">Kennedy</text>
+          <text x="40" y="320">Kipling</text>
+          <text x="428" y="52">Finch</text>
+          <text x="198" y="66" text-anchor="end">Vaughan</text>
+          <text class="map__water" x="700" y="500" text-anchor="end">Lake Ontario</text>
+        </g>
+
+        <g class="map__vehicles" id="vehicles"></g>
+      </svg>
+
+      <div class="hero__text">
+        <h1 class="hero__title stop__name" id="hero-title">Torontrack</h1>
+        <p class="hero__lede">A free, live open-data platform for Toronto. Transit comes first, with a live map, a trip planner and reliability reports. Food, city and weather maps sit beside it. I built it and I run it.</p>
+        <p class="hero__open">I'm a software and data engineer in Toronto, open to software and data engineering roles.</p>
+
+        <ul class="actions">
+          <li><a class="button button--primary" href="https://torontrack.skynetlab.duckdns.org" rel="noopener">Live site</a></li>
+          <li><a class="button" href="https://github.com/MavenTheKeen/torontrack" rel="noopener">Code</a></li>
+          <li><a class="button" href="resume.pdf">Resume</a></li>
+        </ul>
+      </div>
+
+      <dl class="hero__facts">
+        <div><dt>10 s</dt><dd>between polls of the TTC realtime feed</dd></div>
+        <div><dt>441</dt><dd>automated tests on every push</dd></div>
+        <div><dt>10+</dt><dd>open-data sources</dd></div>
+        <div><dt>96%</dt><dd>of realtime buses matched to a route</dd></div>
+      </dl>
+
+      <p class="hero__poll">
+        <span id="poll-time">Polled every 10 seconds</span>
+        <span class="hero__bar" aria-hidden="true"><span id="poll-bar"></span></span>
+        <span class="hero__note">The map here is a drawing. The real one is on the live site.</span>
+      </p>
+    </section>
+    <section class="stop" id="maps" data-stop="See it" aria-labelledby="maps-title">
+      <h2 class="stop__name" id="maps-title">See it</h2>
+      <p class="stop__intro">Torontrack is live and anyone can use it. It has four maps and a findings page, all on open data, tracked continuously since October 2026. It installs as an offline web app and makes no third-party requests.</p>
+
+      <div class="scenes">
+        <figure class="scene scene--board" data-live>
+          <div class="scene__art">
+            <p class="board__name">Bloor-Yonge</p>
+            <ul class="board" id="board">
+              <li><span style="--c: var(--sun)"></span>Northbound<b data-min="2">2 min</b></li>
+              <li><span style="--c: var(--sun)"></span>Southbound<b data-min="5">5 min</b></li>
+              <li><span style="--c: var(--sea)"></span>Eastbound<b data-min="1">1 min</b></li>
+              <li><span style="--c: var(--sea)"></span>Westbound<b data-min="4">4 min</b></li>
+            </ul>
+          </div>
+          <figcaption><strong>Station panels.</strong> Tap a station for the next trains, its entrances and whether each is step-free.</figcaption>
+        </figure>
+
+        <figure class="scene scene--trip" data-live>
+          <div class="scene__art">
+            <svg viewBox="0 0 320 170" role="img" aria-label="A route drawn from a start point to a destination: a walk, a subway ride, then a walk.">
+              <path class="trip__walk trip__walk--a" pathLength="1" d="M28 138 L70 112"/>
+              <path class="trip__rail" pathLength="1" d="M70 112 H150 Q170 112 170 92 V70 Q170 50 190 50 H246"/>
+              <path class="trip__walk trip__walk--b" pathLength="1" d="M246 50 L288 30"/>
+              <g class="trip__stops"><circle cx="70" cy="112" r="6"/><circle cx="118" cy="112" r="3.5"/><circle cx="170" cy="82" r="3.5"/><circle cx="210" cy="50" r="3.5"/><circle cx="246" cy="50" r="6"/></g>
+              <circle class="trip__from" cx="28" cy="138" r="6"/>
+              <path class="trip__to" d="M288 30 m0 -16 a9 9 0 0 1 9 9 c0 6 -9 14 -9 14 c0 0 -9 -8 -9 -14 a9 9 0 0 1 9 -9z"/>
+            </svg>
+            <ol class="trip__legs"><li>Walk</li><li>Subway</li><li>Walk</li></ol>
+          </div>
+          <figcaption><strong>Trip planner.</strong> Type a place or an address. It routes across Toronto, Brampton, Mississauga and York Region.</figcaption>
+        </figure>
+
+        <figure class="scene scene--dock" data-live>
+          <div class="scene__art">
+            <svg viewBox="0 0 320 96" role="img" aria-label="Lines running from one bike dock to the places its trips end.">
+              <g class="dock__lines"><path pathLength="1" d="M60 70 Q120 10 200 22"/><path pathLength="1" d="M60 70 Q150 40 268 46"/><path pathLength="1" d="M60 70 Q140 84 232 78"/><path pathLength="1" d="M60 70 Q90 30 132 14"/></g>
+              <g class="dock__ends"><circle cx="200" cy="22" r="4"/><circle cx="268" cy="46" r="4"/><circle cx="232" cy="78" r="4"/><circle cx="132" cy="14" r="4"/></g>
+              <circle class="dock__home" cx="60" cy="70" r="8"/>
+            </svg>
+            <p class="dock__hours" aria-hidden="true"><i style="--h:0.1;--i:0"></i><i style="--h:0.1;--i:1"></i><i style="--h:0.0;--i:2"></i><i style="--h:0.0;--i:3"></i><i style="--h:0.1;--i:4"></i><i style="--h:0.2;--i:5"></i><i style="--h:0.5;--i:6"></i><i style="--h:0.9;--i:7"></i><i style="--h:1.0;--i:8"></i><i style="--h:0.6;--i:9"></i><i style="--h:0.4;--i:10"></i><i style="--h:0.4;--i:11"></i><i style="--h:0.5;--i:12"></i><i style="--h:0.5;--i:13"></i><i style="--h:0.5;--i:14"></i><i style="--h:0.6;--i:15"></i><i style="--h:0.8;--i:16"></i><i style="--h:1.0;--i:17"></i><i style="--h:0.9;--i:18"></i><i style="--h:0.6;--i:19"></i><i style="--h:0.4;--i:20"></i><i style="--h:0.3;--i:21"></i><i style="--h:0.2;--i:22"></i><i style="--h:0.1;--i:23"></i></p>
+            <p class="dock__axis" aria-hidden="true"><span>midnight</span><span>noon</span><span>midnight</span></p>
+          </div>
+          <figcaption><strong>Bike Share docks.</strong> Live bikes at each dock, its trips by hour and where those trips end.</figcaption>
+        </figure>
+
+        <figure class="scene scene--food" data-live>
+          <div class="scene__art">
+            <div class="food__map" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <ul class="food__card">
+              <li>Inspection<b>Pass</b></li>
+              <li>Licence<b>History on record</b></li>
+            </ul>
+          </div>
+          <figcaption><strong>Food map.</strong> About 14,000 places with Toronto Public Health inspection results and licence history.</figcaption>
+        </figure>
+      </div>
+      <p class="aside">These are drawings of what each part does, not live data. <a href="https://torontrack.skynetlab.duckdns.org" rel="noopener">The real thing is on the live site.</a></p>
+
+      <ul class="branches" data-once>
+        <li style="--c: var(--line)">
+          <h3>Transit</h3>
+          <p>Live map of TTC, GO, Brampton, MiWay and YRT, with a trip planner and reliability reports. More than 9,000 surface stops have arrival estimates.</p>
+        </li>
+        <li style="--c: var(--sun)">
+          <h3>Food</h3>
+          <p>About 14,000 places with Toronto Public Health inspection results and licence history.</p>
+        </li>
+        <li style="--c: var(--sea)">
+          <h3>City</h3>
+          <p>Rinks, pools, beaches, patios and events.</p>
+        </li>
+        <li style="--c: var(--sky)">
+          <h3>Weather</h3>
+          <p>Radar, wind and air quality.</p>
+        </li>
+        <li style="--c: var(--stone)">
+          <h3>Findings</h3>
+          <p>Data analyses, such as rain against Bike Share trips and snow against subway delays.</p>
+        </li>
+      </ul>
+    </section>
+    <section class="stop" id="system" data-stop="How it works" aria-labelledby="system-title">
+      <h2 class="stop__name" id="system-title">How it works</h2>
+      <p class="stop__intro">I built Torontrack for two groups: riders who want to know where their train is, and anyone who wants to know how reliable the service is. A long-running collector polls the TTC's GTFS-Realtime feeds every 10 seconds, around the clock. Other collectors bring in Bike Share, Metrolinx, City of Toronto and Environment Canada data. Everything is stored raw first, then checked, modelled and served.</p>
+
+      <div class="flow" id="flow" data-live>
+        <span class="flow__packets" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <ol class="flow__stages">
+          <li>
+            <h3>Feeds</h3>
+            <ul class="flow__feeds">
+              <li>TTC GTFS-Realtime</li>
+              <li>Bike Share</li>
+              <li>Metrolinx</li>
+              <li>City of Toronto</li>
+            </ul>
+          </li>
+          <li>
+            <h3>Collectors</h3>
+            <p>Poll each feed on its own schedule. TTC every 10 seconds, Bike Share every 15 minutes.</p>
+          </li>
+          <li>
+            <h3>PostgreSQL, raw first</h3>
+            <p>Each response is stored before it is parsed. More than a dozen checks reject or flag records, and each one is stored with its reason.</p>
+          </li>
+          <li>
+            <h3>dbt</h3>
+            <p>29 models with 100+ data tests.</p>
+          </li>
+          <li>
+            <h3>FastAPI and OpenTripPlanner</h3>
+            <p>A read-only, cached API and a trip planner for Toronto, Brampton, Mississauga and York Region.</p>
+          </li>
+          <li>
+            <h3>The site</h3>
+            <p>Plain HTML, CSS and JavaScript. No build step.</p>
+          </li>
+        </ol>
+      </div>
+
+      <dl class="rows">
+        <div>
+          <dt>Tests</dt>
+          <dd>441 automated tests on recorded feed responses, including PostgreSQL integration tests and a full dbt build, in GitHub Actions on every push. <a href="https://github.com/MavenTheKeen/torontrack/actions/workflows/ci.yml" rel="noopener">See the test runs</a></dd>
+        </div>
+        <div>
+          <dt>Pipeline page</dt>
+          <dd>For each feed: last success, runs completed against runs expected, data age, and the records rejected or flagged in the last hour, with reasons. A job can run and still deliver nothing, so health is judged by how fresh the data is.</dd>
+        </div>
+        <div>
+          <dt>Between refreshes</dt>
+          <dd>Trains move toward their next predicted station. Buses move at the route's usual pace for the hour. Checked against 630,000 position reports, this roughly halves the error.</dd>
+        </div>
+        <div>
+          <dt>Trip planner</dt>
+          <dd>OpenTripPlanner 2.10, built from five schedules. For frequent TTC service it suggests when to leave to arrive on time about 9 times in 10. <a href="https://github.com/MavenTheKeen/torontrack/blob/main/docs/planner.md" rel="noopener">How the planner works</a></dd>
+        </div>
+        <div>
+          <dt>Open data</dt>
+          <dd>Daily datasets in Parquet and CSV with SHA-256 checksums, for anyone to reuse. <a href="https://github.com/MavenTheKeen/torontrack/blob/main/docs/datasets.md" rel="noopener">About the datasets</a></dd>
+        </div>
+        <div>
+          <dt>Privacy</dt>
+          <dd>No ads and no tracking.</dd>
+        </div>
+        <div>
+          <dt>Messy feeds</dt>
+          <dd>TTC trip IDs change between polls, so trains are tracked by vehicle label. Bus trip IDs do not join the schedule, so each bus is matched to a route by position and heading: 96% of the fleet in about 0.3 seconds. <a href="https://github.com/MavenTheKeen/torontrack#readme" rel="noopener">More in the README</a></dd>
+        </div>
+        <div>
+          <dt>Built with</dt>
+          <dd>Python 3.12, PostgreSQL 16, dbt, Airflow, FastAPI, MapLibre GL JS, Docker and JavaScript.</dd>
+        </div>
+      </dl>
+    </section>
+    <section class="stop" id="reliability" data-stop="Reliability" aria-labelledby="reliability-title">
+      <h2 class="stop__name" id="reliability-title">Reliability</h2>
+      <p class="stop__intro">Riders mostly want to know one thing: how long will I really wait? Torontrack measures the gap between trains at every platform and compares it with the schedule.</p>
+
+      <div class="wait" id="wait">
+        <div class="wait__track" aria-hidden="true">
+          <span class="wait__ticks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="wait__trains"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <p class="wait__legend" aria-hidden="true"><span>Scheduled: a train every 5 minutes</span><span>30 minutes at one platform</span></p>
+
+        <label class="wait__control">
+          <span>Drag to bunch the trains</span>
+          <input type="range" id="wait-range" min="0" max="100" value="0" step="1">
+        </label>
+
+        <dl class="wait__out" aria-live="polite">
+          <div><dt>Extra wait</dt><dd id="wait-ewt">0 s</dd></div>
+          <div><dt>Longest gap</dt><dd id="wait-gap">5 min</dd></div>
+          <div><dt>Grade</dt><dd><b class="wait__grade" id="wait-grade">A</b></dd></div>
+        </dl>
+        <p class="wait__note">The same trains run at every position of the slider. Only their spacing changes. Extra wait is how much longer a rider who turns up at a random moment waits than the schedule promises, and it is what the monthly report card grades, from A (up to 30 seconds) to F (beyond 4 minutes).</p>
+      </div>
+
+      <dl class="rows">
+        <div>
+          <dt>Measured since</dt>
+          <dd>9 October 2026, from train and vehicle observations. These are estimates from predicted arrival times, not official TTC statistics.</dd>
+        </div>
+        <div>
+          <dt>Service seen</dt>
+          <dd>A median of 98% of scheduled bus and streetcar service, across 3,021 route-direction days. On the first evening of trip-level checks, 98.6% of 13,580 scheduled trips were seen.</dd>
+        </div>
+        <div>
+          <dt>Unreported delays</dt>
+          <dd>When the TTC reports nothing but neighbouring platforms show long waits, the line is marked as a possible delay, not confirmed by the TTC.</dd>
+        </div>
+        <div>
+          <dt>Findings page</dt>
+          <dd>The same data answers wider questions: rain and Bike Share trips, snow and subway delays, the main causes of subway delay, potholes after freeze and thaw, beach water after rain, and inspection results by a restaurant's age. <a href="https://torontrack.skynetlab.duckdns.org" rel="noopener">See the results on the live site</a></dd>
+        </div>
+      </dl>
+      <p class="aside"><a href="https://github.com/MavenTheKeen/torontrack/blob/main/docs/reliability.md" rel="noopener">How each measure is defined</a></p>
+    </section>
+    <section class="stop" id="experience" data-stop="Experience" aria-labelledby="experience-title">
+      <h2 class="stop__name" id="experience-title">Experience</h2>
+      <p class="stop__intro">Software and data engineer with a BSc in Computer Science from Western University (2025). I work mostly in Python and SQL, and I build and run things myself: Torontrack in production, ETL pipelines on AWS, and an NLP evaluation pipeline at Atlassian.</p>
+
+      <div class="jobs">
+        <article class="job">
+          <p class="job__when">June to December 2025<span>Wrocław, Poland</span></p>
+          <div>
+            <h3>Data Engineer, contract <span>Kingfisher Solutions</span></h3>
+            <p class="job__result">About 40% less manual data handling. Routine lookups went from minutes to seconds.</p>
+            <dl class="job__story">
+              <div><dt>Problem</dt><dd>Project and vendor records lived in paper files, spreadsheets and old project folders, and people searched them by hand.</dd></div>
+              <div><dt>What I built</dt><dd>Automated ETL pipelines on AWS (S3, Lambda, RDS) that pull from REST APIs to ingest, clean, transform and validate the data. I led the move of all of it into one SQL database for engineering and operations.</dd></div>
+              <div><dt>Quality</dt><dd>Automated checks for missing, duplicate and inconsistent records cut manual validation by about 30%.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="job">
+          <p class="job__when">August to October 2024<span>Remote</span></p>
+          <div>
+            <h3>Data Scientist, contract <span>Atlassian</span></h3>
+            <p class="job__result">Best method scored 0.83 Pearson on STS-B. TF-IDF reached 0.70 at about 1% of the runtime.</p>
+            <dl class="job__story">
+              <div><dt>Question</dt><dd>Which text-similarity method matches meaning best, and what does the accuracy cost in speed?</dd></div>
+              <div><dt>What I built</dt><dd>An NLP evaluation pipeline in Python (Sentence Transformers, scikit-learn, spaCy, Gensim, BERTScore) that benchmarked 6 methods and 2 similarity metrics on the STS-B and Quora Question Pairs datasets.</dd></div>
+              <div><dt>Outcome</dt><dd>Sentence Transformers came out on top (0.83 Pearson, 0.81 Spearman). My recommendations informed the product evaluation roadmap for Rovo Search and contributed to its semantic text-matching work.</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="stop" id="skills" data-stop="Skills" aria-labelledby="skills-title">
+      <h2 class="stop__name" id="skills-title">Skills</h2>
+
+      <dl class="rows">
+        <div>
+          <dt>Languages</dt>
+          <dd>Python, SQL, JavaScript, TypeScript, Java, C++, C, R</dd>
+        </div>
+        <div>
+          <dt>Backend and data</dt>
+          <dd>REST APIs, FastAPI, PostgreSQL, ETL and ELT pipelines, dbt, Airflow, data modelling, data validation and quality, GTFS and GTFS-Realtime</dd>
+        </div>
+        <div>
+          <dt>Cloud and DevOps</dt>
+          <dd>AWS (S3, Lambda, RDS), Docker, Docker Compose, GitHub Actions, Linux, Git</dd>
+        </div>
+        <div>
+          <dt>ML and data science</dt>
+          <dd>NLP, sentence embeddings, model evaluation, Pandas, NumPy, scikit-learn, spaCy, Sentence Transformers</dd>
+        </div>
+        <div>
+          <dt>Certification</dt>
+          <dd>IBM Z Xplore (mainframe, z/OS, JCL, COBOL, DB2), 2024</dd>
+        </div>
+        <div>
+          <dt>Spoken languages</dt>
+          <dd>English, Farsi and Kurdish (fluent), German (conversational)</dd>
+        </div>
+      </dl>
+    </section>
+    <section class="stop stop--last" id="contact" data-stop="Contact" aria-labelledby="contact-title">
+      <h2 class="stop__name" id="contact-title">Contact</h2>
+      <p class="stop__intro">I'm in Toronto and open to software and data engineering roles. Email is the fastest way to reach me.</p>
+      <p class="contact__mail"><a href="mailto:kavanmoghaddam@gmail.com">kavanmoghaddam@gmail.com</a></p>
+      <ul class="contact__links">
+        <li><a href="https://linkedin.com/in/kavanmoghaddam" rel="me noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/MavenTheKeen" rel="me noopener">GitHub</a></li>
+        <li><a href="resume.pdf">Resume (PDF)</a></li>
+        <li><a href="https://torontrack.skynetlab.duckdns.org" rel="noopener">Torontrack</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>&copy; <span id="year">2026</span> Kavan Moslemimoghaddam</p>
+    <ul>
+      <li><a href="#maps">See it</a></li>
+      <li><a href="#system">How it works</a></li>
+      <li><a href="#reliability">Reliability</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#main">Back to top</a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
